@@ -1,3 +1,13 @@
+"设置系统终端vim配色
+syntax enable
+"colorscheme solarized
+
+"if has('gui_running')
+"    set background=light
+"else
+"	set background=dark
+"endif
+
 "去掉vi一致性
 set nocompatible
 
