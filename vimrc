@@ -39,3 +39,5 @@ let Tlist_File_Fold_Auto_Close=1 "同时显示多个文件中的tag时，可使t
 "设置taglist打开关闭的快捷键F9
 noremap <F9> :TlistToggle<CR>
 
+"nerdtree
+nnoremap<F8> :NERDTreeToggle<CR>
