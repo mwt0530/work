@@ -20,6 +20,8 @@ set autoindent
 set history=50
 filetype plugin indent on
 
+"设置键入字符开始搜索
+set incsearch
 
 "设置（软）制表符宽度为4：
 set tabstop=4
