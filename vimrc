@@ -1,6 +1,11 @@
 "设置系统终端vim配色
 syntax enable
 "colorscheme solarized
+"if &to_Co > 1
+"	syntax enable
+"endif
+"syntax clear
+"syntax off
 
 "if has('gui_running')
 "    set background=light
@@ -10,6 +15,11 @@ syntax enable
 
 "去掉vi一致性
 set nocompatible
+"自动对齐
+set autoindent
+set history=50
+filetype plugin indent on
+
 
 "设置（软）制表符宽度为4：
 set tabstop=4
