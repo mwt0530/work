@@ -1,0 +1,5 @@
+[dvd]
+name=install dvd
+baseurl=file:///mnt/iso
+enabled=1
+gpgcheck=0
