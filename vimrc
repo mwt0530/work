@@ -15,8 +15,6 @@ syntax enable
 
 "去掉vi一致性
 set nocompatible
-"自动对齐
-set autoindent
 set history=50
 filetype plugin indent on
 
@@ -29,7 +27,7 @@ set softtabstop=4
 "设置缩进的空格数为4
 set shiftwidth=4
 "设置自动缩进：即每行的缩进值与上一行相等；使用 noautoindent 取消设置：
-set autoindent
+"set autoindent
 "设置使用 C/C++ 语言的自动缩进方式：
 set cindent
 
@@ -49,7 +47,7 @@ let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist窗口
 ""taglist始终解析文件中的tag，不管taglist窗口有没有打开
 let Tlist_File_Fold_Auto_Close=1 "同时显示多个文件中的tag时，可使taglist只显示当前文件tag，其它文件的tag都被折叠起来
 "设置taglist打开关闭的快捷键F9
-noremap <F9> :TlistToggle<CR>
+nnoremap <F9> :TlistToggle<CR>
 
 "nerdtree
 nnoremap<F8> :NERDTreeToggle<CR>
