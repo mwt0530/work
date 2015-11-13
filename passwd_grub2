@@ -1,0 +1,77 @@
+#!/bin/bash
+#set password for edit grub2
+#@201511
+
+sed -i '/grub_password_begin/,/grub_password_end/'d /etc/grub.d/00_header
+
+touch /tmp/{grub_passwd,grub_passwd2}
+
+input()
+{
+	stty -echo
+	echo "Set Passwd For grub2"
+	echo "Enter password:"
+	read p1
+	echo "Reenter password:"
+	read p2
+	stty echo
+}
+
+if [ ! -f /tmp/grub_passwd -o ! -f /tmp/grub_passwd2 ]
+then
+	echo "Excepthion occurs"
+	exit 1
+fi
+input
+
+while [ -z "$p1" -o "X$p1" != "X$p2" ]
+do
+	echo "Two passwords don't match"
+	input
+done
+
+echo "$p1" >/tmp/grub_passwd
+echo "$p1" >>/tmp/grub_passwd
+
+
+grub2-mkpasswd-pbkdf2 < /tmp/grub_passwd >/tmp/grub_passwd2
+
+if [ ! -s  /tmp/grub_passwd2 ]
+then
+	echo "Excepthion occurs"
+	exit 2
+fi
+
+key=$(sed -n '/pbkdf2/p' /tmp/grub_passwd2 | awk '{print $7}')
+echo $key
+
+if [ "X$key" = "X" ]
+then
+	echo "Excepthion occurs"
+	exit 3
+fi
+
+#cp /etc/grub.d/00_header /etc/grub.d/00_header.bk
+
+cat >> /etc/grub.d/00_header <<EOF
+##Add grub_password_begin##
+cat <<EEE
+set superusers="root"
+password_pbkdf2 root $key
+EEE
+##Add grub_password_end##
+EOF
+if [ ! -e /boot/grub2/grub.cfg.bk ]
+then
+	cp /boot/grub2/grub.cfg  /boot/grub2/grub.cfg.bk
+
+fi
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
+if [  $? -eq 0 ]
+then
+	echo "Set Grub Password Success"
+fi
+
+rm -f /tmp/grub_passwd 
+rm -f /tmp/grub_passwd2
