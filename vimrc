@@ -36,6 +36,9 @@ set shiftwidth=4
 "设置使用 C/C++ 语言的自动缩进方式：
 set cindent
 
+"set laststatus=2
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")} 
+
 "------------------------------plugin----------------------------------------
 "ctags
 set tags=tags;
