@@ -1,0 +1,22 @@
+[user]
+	name = Wentao Ma
+	email = mawentao@inspur.com
+[color]
+	branch = auto
+	diff = auto
+	ui = auto
+	status = auto
+	interactive = auto
+	grep = auto
+[alias]
+	st = status
+	s = status
+	co = checkout
+	ci = commit
+	br = branch
+	b = branch
+	unstage = reset HEAD
+	last = log -1
+	l = log --stat --decorate --abbrev-commit --max-count=3
+	lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	logs = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset' --decorate --abbrev-commit --max-count=20
