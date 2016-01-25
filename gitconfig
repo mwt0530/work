@@ -20,3 +20,5 @@
 	l = log --stat --decorate --abbrev-commit --max-count=3
 	lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	logs = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset' --decorate --abbrev-commit --max-count=20
+	ls = ls-files
+	ll = ls-files -s --abbrev=10 
