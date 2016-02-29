@@ -18,6 +18,7 @@ set nocompatible
 "自动对齐
 set autoindent
 set history=50
+"set autochdir
 
 "set laststatus=2"总显示最后一个窗口的状态行
 filetype plugin on
@@ -39,10 +40,16 @@ set cindent
 "set laststatus=2
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")} 
 
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+
 "------------------------------plugin----------------------------------------
 "ctags
 set tags=tags;
-set autochdir
 map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
 
 "taglist 插件Ctags 插件: TagList
