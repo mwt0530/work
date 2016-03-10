@@ -46,6 +46,44 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+"-----------------------------新建文件-----------------------------------------------
+"新建.c,.h,.sh,.java文件，自动插入文件头
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetTitle()"
+"定义函数SetTitle，自动插入文件头
+func SetTitle()
+	"如果文件类型为.sh文件
+	if &filetype == 'sh'
+		call setline(1,"\#!/bin/bash")
+		call append(line("."), "")
+	elseif &filetype == 'python'
+		call setline(1,"#!/usr/bin/env python")
+		call append(line("."),"# coding=utf-8")
+		call append(line(".")+1, "")
+	elseif &filetype == 'ruby'
+		call setline(1,"#!/usr/bin/env ruby")
+		call append(line("."),"# encoding: utf-8")
+		call append(line(".")+1, "")
+	"elseif &filetype == 'mkd'
+	"	call setline(1,"<head><meta charset=\"UTF-8\"></head>")
+	endif
+	if expand("%:e") == 'cpp'
+		call setline(1, "#include<iostream>")
+		call append(line("."), "using namespace std;")
+		call append(line(".")+1, "")
+	endif
+	if &filetype == 'c'
+		call setline(1, "#include<stdio.h>")
+		call append(line("."), "")
+		call append(line(".")+1, "int main(int argc, char *argv[])")
+		call append(line(".")+2, "")
+	endif
+	if &filetype == 'java'
+		call setline(1,"public class ".expand("%:r"))
+		call append(line("."),"")
+	endif
+	"新建文件后，自动定位到文件末尾
+endfunc
+autocmd BufNewFile * normal G
 
 "------------------------------plugin----------------------------------------
 "ctags
