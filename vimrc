@@ -15,8 +15,6 @@ syntax enable
 
 "去掉vi一致性
 set nocompatible
-"自动对齐
-set autoindent
 set history=50
 "set autochdir
 
@@ -30,12 +28,14 @@ set incsearch
 "设置（软）制表符宽度为4：
 set tabstop=4
 set softtabstop=4
+"设置tab用4个空格代替；使用noexpandtab取消
+set expandtab
 "设置缩进的空格数为4
 set shiftwidth=4
 "设置自动缩进：即每行的缩进值与上一行相等；使用 noautoindent 取消设置：
-"set autoindent
+set autoindent
 "设置使用 C/C++ 语言的自动缩进方式：
-set cindent
+"set cindent
 
 "set laststatus=2
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")} 
