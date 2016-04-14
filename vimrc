@@ -1,6 +1,15 @@
 "设置系统终端vim配色
 syntax enable
-"colorscheme solarized
+"---molokai配色---
+"colorscheme molokai 
+"let g:molokai_original = 1
+
+"---solarized配色---
+if $_ != 'git commit'
+    set background=dark
+    colorscheme solarized
+endif
+
 "if &to_Co > 1
 "	syntax enable
 "endif
@@ -18,7 +27,6 @@ set nocompatible
 set history=50
 "set autochdir
 
-"set laststatus=2"总显示最后一个窗口的状态行
 filetype plugin on
 filetype plugin indent on
 
@@ -28,7 +36,7 @@ set incsearch
 "设置（软）制表符宽度为4：
 set tabstop=4
 set softtabstop=4
-"设置tab用4个空格代替；使用noexpandtab取消
+"设置tab用4个空格代替,使用noexpandtab取消,[需要输入真正的Tab键时，使用 Ctrl+V+Tab]
 set expandtab
 "设置缩进的空格数为4
 set shiftwidth=4
