@@ -53,6 +53,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+"map c-a to select all
+"map <C-A> ggVG
 
 "-----------------------------新建文件-----------------------------------------------
 "新建.c,.h,.sh,.java文件，自动插入文件头
@@ -65,7 +67,7 @@ func SetTitle()
 		call append(line("."), "")
 	elseif &filetype == 'python'
 		call setline(1,"#!/usr/bin/env python")
-		call append(line("."),"# coding=utf-8")
+		call append(line("."),"# -*- coding: utf-8 -*-")
 		call append(line(".")+1, "")
 	elseif &filetype == 'ruby'
 		call setline(1,"#!/usr/bin/env ruby")
@@ -117,7 +119,7 @@ nnoremap<F8> :NERDTreeToggle<CR>
 
 "-- omnicppcomplete setting --代码自动补全C/C++
 " 按下F3自动补全代码，注意该映射语句后不能有其他字符，包括tab；否则按下F3会自动补全一些乱码
-"imap <F3> <C-X><C-O> o:omni
+imap <F3> <C-X><C-O>
 " 按下F2根据头文件内关键字补全
 " imap <F2> <C-X><C-I> i:include
 set completeopt=menu,menuone " 关掉智能补全时的预览窗口
