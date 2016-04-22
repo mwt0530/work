@@ -36,7 +36,7 @@
 #ifaces="wlp3s0"
 
 # Multiple interfaces
-ifaces="enp4s0 wlp3s0"
+ifaces="enp4s0 wlp3s0 virbr0"
 
 # Auto detect
 #ifaces=$(ls /sys/class/net | grep -E '^(eth|wlan)')
