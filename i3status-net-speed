@@ -97,7 +97,7 @@ update_rate() {
         tx=$(( tx + tmp_tx ))
     done
     #rate="$(readable $(( (rx - last_rx) / interval )))↓ $(readable $(( (tx - last_tx) / interval )))↑"
-    rate="[UP] $(readable $(( (rx - last_rx) / interval ))) [DOWN] $(readable $(( (tx - last_tx) / interval )))"
+    rate="[DOWN] $(readable $(( (rx - last_rx) / interval ))) [UP] $(readable $(( (tx - last_tx) / interval )))"
     last_rx=$rx
     last_tx=$tx
 }
