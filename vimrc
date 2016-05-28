@@ -77,12 +77,12 @@ func SetTitle()
 	"	call setline(1,"<head><meta charset=\"UTF-8\"></head>")
 	endif
 	if expand("%:e") == 'cpp'
-		call setline(1, "#include<iostream>")
+		call setline(1, "#include <iostream>")
 		call append(line("."), "using namespace std;")
 		call append(line(".")+1, "")
 	endif
 	if &filetype == 'c'
-		call setline(1, "#include<stdio.h>")
+		call setline(1, "#include <stdio.h>")
 		call append(line("."), "")
 		call append(line(".")+1, "int main(int argc, char *argv[])")
 		call append(line(".")+2, "")
@@ -162,3 +162,17 @@ nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
 nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR><CR> :copen<CR><CR>
 
+"---- ctrlp ----
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_max_depth = 40
+let g:ctrlp_max_files = 20000
+"if executable('ag')
+"  " Use ag over grep
+"  set grepprg=ag\ --nogroup\ --nocolor
+"
+"  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+"  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"
+"  " ag is fast enough that CtrlP doesn't need to cache
+"  let g:ctrlp_use_caching = 0
+"endif
