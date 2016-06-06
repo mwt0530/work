@@ -98,6 +98,8 @@ autocmd BufNewFile * normal G
 "------------------------------plugin----------------------------------------
 "ctags
 set tags=tags;
+"ctags -R --c-kinds=+l+x+p --fields=+lS  --extra=+q -I __THROW,__nonnull
+set tags+=/usr/include/tags
 map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
 
 "taglist 插件Ctags 插件: TagList
@@ -121,7 +123,7 @@ nnoremap<F8> :NERDTreeToggle<CR>
 " 按下F3自动补全代码，注意该映射语句后不能有其他字符，包括tab；否则按下F3会自动补全一些乱码
 imap <F3> <C-X><C-O>
 " 按下F2根据头文件内关键字补全
-" imap <F2> <C-X><C-I> i:include
+imap <F2> <C-X><C-I>
 set completeopt=menu,menuone " 关掉智能补全时的预览窗口
 let OmniCpp_MayCompleteDot = 1 " autocomplete with .
 let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
