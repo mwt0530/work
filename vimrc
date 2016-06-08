@@ -4,6 +4,9 @@ syntax enable
 "colorscheme molokai 
 "let g:molokai_original = 1
 
+"---dracula配色---
+"colorscheme dracula
+
 "---solarized配色---
 if $_ != 'git commit'
     set background=dark
