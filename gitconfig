@@ -22,3 +22,5 @@
 	logs = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset' --decorate --abbrev-commit --max-count=20
 	ls = ls-files
 	ll = ls-files -s --abbrev=10 
+[core]
+	editor = vim
