@@ -9,10 +9,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'taglist.vim'
 Plugin 'cscope.vim'
+Plugin 'Gundo'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'xuhdev/SingleCompile'
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -33,6 +36,7 @@ filetype plugin on
 filetype plugin indent on
 
 set incsearch
+set laststatus=2
 
 set tabstop=4
 set softtabstop=4
@@ -46,6 +50,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+vnoremap < <gv
+vnoremap > >gv
 
 "--------------------------------------------------------------------------------
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetTitle()"
@@ -105,6 +112,10 @@ nnoremap<F9> :TlistToggle<CR>
 
 "------nerdtree--------
 nnoremap<F8> :NERDTreeToggle<CR>
+
+"-----Gundo-----
+let g:gundo_width = 30
+nnoremap<F4> :GundoToggle<CR>
 
 "----------ctrlp-----------
 let g:ctrlp_working_path_mode = 0
