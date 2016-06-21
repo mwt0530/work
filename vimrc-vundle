@@ -14,14 +14,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'godlygeek/tabular'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'xuhdev/SingleCompile'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -42,7 +43,7 @@ filetype plugin on
 filetype plugin indent on
 
 set incsearch
-set laststatus=2
+"set laststatus=2
 
 set tabstop=4
 set softtabstop=4
@@ -178,3 +179,8 @@ nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 "------vim-trailing-whitespace------
 nnoremap <leader><space> :FixWhitespace<cr>
 
+"------tabular------
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
