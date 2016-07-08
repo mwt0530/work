@@ -22,6 +22,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'Raimondi/delimitMate'
+Plugin 'klen/python-mode'
 Plugin 'thinca/vim-quickrun'
 "Plugin 'xuhdev/SingleCompile'
 Plugin 'SirVer/ultisnips'
@@ -207,3 +208,14 @@ map <Leader><Leader>j <Plug>(easymotion-j)
 map <Leader><Leader>k <Plug>(easymotion-k)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 map <Leader><leader>. <Plug>(easymotion-repeat)"
+
+"------python-mode------
+let g:pymode_folding = 0
+let g:pymode_options = 0
+let g:pymode_trim_whitespaces = 0
+"let g:pymode_rope_completion = 0
+let g:pymode_syntax = 0
+let g:pymode_rope = 0
+let g:pymode_lint_on_write = 0
+nnoremap <leader>c :PymodeLint<CR>
+nnoremap <leader><leader>c :PymodeLintAuto<CR>
