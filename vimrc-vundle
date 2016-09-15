@@ -21,6 +21,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'godlygeek/tabular'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'crosbymichael/vim-cfmt'
 Plugin 'Raimondi/delimitMate'
 Plugin 'klen/python-mode'
 Plugin 'thinca/vim-quickrun'
@@ -226,3 +227,6 @@ let g:pymode_rope = 0
 let g:pymode_lint_on_write = 0
 nnoremap <leader>c :PymodeLint<CR>
 nnoremap <leader><leader>c :PymodeLintAuto<CR>
+
+"[vim-cfmt]
+let g:cfmt_style = '-kr'
