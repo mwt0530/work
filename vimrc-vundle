@@ -32,6 +32,7 @@ Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
+"hi Normal ctermfg=none ctermbg=none
 "---solarized配色---
 if $_ != 'git commit'
     colorscheme solarized
@@ -49,6 +50,8 @@ filetype plugin indent on
 
 set incsearch
 "set laststatus=2
+set number
+highlight LineNr  ctermbg=none ctermfg=gray
 
 set tabstop=4
 set softtabstop=4
@@ -79,6 +82,8 @@ map <silent><S-F9> <esc>:vertical resize -10<cr>
 
 nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
 autocmd FileType yaml set tabstop=2 | set softtabstop=2 | set shiftwidth=2 | set expandtab
+"Python configs
+highlight pythonFunction cterm=bold ctermfg=gray
 
 "--------------------------------------------------------------------------------
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetTitle()"
