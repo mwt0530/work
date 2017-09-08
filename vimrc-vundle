@@ -29,6 +29,7 @@ Plugin 'thinca/vim-quickrun'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -174,7 +175,8 @@ let g:ycm_filetype_whitelist = {
         \'c': 1,
         \'cpp': 1,
         \'python': 1,
-        \'cmake': 1
+        \'cmake': 1,
+        \'go': 1
         \}
 
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
