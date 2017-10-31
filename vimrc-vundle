@@ -53,6 +53,7 @@ set incsearch
 "set laststatus=2
 set number
 highlight LineNr  ctermbg=none ctermfg=gray
+highlight VertSplit ctermfg=none ctermbg=none gui=reverse
 
 set tabstop=4
 set softtabstop=4
@@ -134,6 +135,7 @@ set tags=tags;
 
 "------tagbar------
 nnoremap <silent><F9> :TagbarToggle<CR>
+let g:tagbar_sort = 0
 
 "------nerdtree------
 nnoremap<F8> :NERDTreeToggle<CR>
@@ -194,6 +196,9 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><S-tab>"
 
 "------IndentLines------
 nmap <silent> <Leader>i :IndentLinesToggle<cr>
+let g:indentLine_enabled=0
+"let g:indentLine_fileType=["python"]
+"let g:indentLine_char = '┊'
 
 "------vim-trailing-whitespace------
 nnoremap <leader><space> :FixWhitespace<cr>
@@ -236,4 +241,6 @@ nnoremap <leader>c :PymodeLint<CR>
 nnoremap <leader><leader>c :PymodeLintAuto<CR>
 
 "[vim-cfmt]
-let g:cfmt_style = '-kr'
+let g:cfmt_style = '-linux'
+"autocmd BufWritePre *.c,*.h Cfmt
+
