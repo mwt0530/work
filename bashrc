@@ -45,6 +45,9 @@ if [  -f ~/.local/bin/bashmarks.sh ];then
 	source ~/.local/bin/bashmarks.sh
 fi
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 #python completion in interactive mode
 if [ -f ~/.pythonstartup ];then
     export PYTHONSTARTUP=~/.pythonstartup
