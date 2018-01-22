@@ -6,6 +6,11 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias vi='vim'
+alias vl='virsh list --all'
+alias vc='virsh create'
+alias vd='virsh destroy'
+alias vs='virsh start'
+alias etcdctl="ETCDCTL_API=3 etcdctl"
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -38,6 +43,9 @@ if [ -f ~/.git-prompt.sh ]; then
 	export GIT_PS1_SHOWCOLORHINTS=1
 	#export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 	export PS1='[\u@\h \W\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[m\]]\$ '
+    PS1='[\u@\h:\w\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[m\]]\$ '
+    export PS1="${debian_chroot:+($debian_chroot)}$PS1"
+    export PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"']]'
 fi
 
 #bashmarks
