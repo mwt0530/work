@@ -1,0 +1,25 @@
+#!/bin/bash
+
+usage() {
+    echo "Usage $(basename $0) [ss|vpn|nfs-vpn]"
+    exit 1
+}
+
+[ $# -lt 1 ] && usage
+
+case $1 in
+    ss):
+        sslocal -c /etc/shadowsocks/config.json >/dev/null 2>&1 &
+        ;;
+    vpn):
+        cd /home/ma/Downloads/vpn-bridge
+        openvpn --config config.ovpn >/dev/null 2>&1 &
+        ;;
+    nfs-vpn):
+        cd /opt/work/nfs/vpc/
+        openvpn --config rtr-2h97zdbv.conf >/dev/null 2>&1 &
+        ;;
+    *):
+        usage
+        ;;
+esac
