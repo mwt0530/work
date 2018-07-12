@@ -86,6 +86,8 @@ nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
 autocmd FileType yaml set tabstop=2 | set softtabstop=2 | set shiftwidth=2 | set expandtab
 "Python configs
 highlight pythonFunction cterm=bold ctermfg=gray
+"keep tab in Makefile
+autocmd FileType make setlocal noexpandtab
 
 "--------------------------------------------------------------------------------
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetTitle()"
