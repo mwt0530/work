@@ -11,6 +11,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'cscope.vim'
 Plugin 'Gundo'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -24,12 +26,16 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'crosbymichael/vim-cfmt'
 Plugin 'Raimondi/delimitMate'
-Plugin 'klen/python-mode'
-Plugin 'thinca/vim-quickrun'
+"Plugin 'klen/python-mode'
+Plugin 'nvie/vim-flake8'
+"Plugin 'thinca/vim-quickrun'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -75,9 +81,13 @@ map <C-l> <C-W>l
 vnoremap < <gv
 vnoremap > >gv
 
+"nmap <leader>h <esc>:MBEbp<CR>
+"nmap <leader>l <esc>:MBEbn<CR>
+"nmap <Leader>t :MBEToggle<cr>
 map <leader>h <esc>:tabprevious<CR>
 map <leader>l <esc>:tabnext<CR>
 map <leader>t <esc>:tabnew<CR>
+let g:miniBufExplorerAutoStart = 0
 
 map <silent><C-F9> <esc>:vertical resize +10<cr>
 map <silent><S-F9> <esc>:vertical resize -10<cr>
@@ -140,7 +150,7 @@ nnoremap <silent><F9> :TagbarToggle<CR>
 let g:tagbar_sort = 0
 
 "------nerdtree------
-nnoremap<F8> :NERDTreeToggle<CR>
+nnoremap<F8> :NERDTreeTabsToggle<CR>
 
 "------Gundo------
 let g:gundo_width = 30
@@ -246,3 +256,21 @@ nnoremap <leader><leader>c :PymodeLintAuto<CR>
 let g:cfmt_style = '-linux'
 "autocmd BufWritePre *.c,*.h Cfmt
 
+"[vim-flake8]
+let g:flake8_show_in_file=1
+let g:flake8_show_in_gutter=1
+let g:flake8_error_marker='EE'
+let g:flake8_warning_marker='WW'
+highlight link Flake8_Error Error
+"autocmd BufWritePost *.py call Flake8()
+autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
+
+"[vim-go]
+let g:go_version_warning = 0
+
+"[vim-markdown]
+let g:vim_markdown_folding_disabled = 1
+
+"[vim-gitgutter]
+let g:gitgutter_enabled = 0
+nmap <leader>g <esc>:GitGutterToggle<CR>
