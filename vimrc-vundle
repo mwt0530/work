@@ -14,12 +14,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'fholgado/minibufexpl.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
-"Plugin 'Lokaltog/vim-powerline'
+"Plugin 'vim-airline/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-"Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
 Plugin 'godlygeek/tabular'
 Plugin 'bronson/vim-trailing-whitespace'
@@ -57,7 +57,7 @@ filetype plugin indent on
 
 set incsearch
 "set laststatus=2
-set number
+"set number
 highlight LineNr  ctermbg=none ctermfg=gray
 highlight VertSplit ctermfg=none ctermbg=none gui=reverse
 
@@ -81,13 +81,13 @@ map <C-l> <C-W>l
 vnoremap < <gv
 vnoremap > >gv
 
-"nmap <leader>h <esc>:MBEbp<CR>
-"nmap <leader>l <esc>:MBEbn<CR>
-"nmap <Leader>t :MBEToggle<cr>
-map <leader>h <esc>:tabprevious<CR>
-map <leader>l <esc>:tabnext<CR>
-map <leader>t <esc>:tabnew<CR>
-let g:miniBufExplorerAutoStart = 0
+nmap <leader>h <esc>:MBEbp<CR>
+nmap <leader>l <esc>:MBEbn<CR>
+nmap <Leader>t :MBEToggle<cr>
+"map <leader>h <esc>:tabprevious<CR>
+"map <leader>l <esc>:tabnext<CR>
+"map <leader>t <esc>:tabnew<CR>
+let g:miniBufExplorerAutoStart = 1
 
 map <silent><C-F9> <esc>:vertical resize +10<cr>
 map <silent><S-F9> <esc>:vertical resize -10<cr>
@@ -99,7 +99,8 @@ highlight pythonFunction cterm=bold ctermfg=gray
 "keep tab in Makefile
 autocmd FileType make setlocal noexpandtab
 
-"--------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetTitle()"
 
 func SetTitle()
@@ -193,8 +194,9 @@ let g:ycm_filetype_whitelist = {
         \'go': 1
         \}
 
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-nnoremap <silent> <leader><leader>d :YcmCompleter GoToDefinition<CR>
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+nnoremap <silent> <leader><leader>r :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <leader><leader>d :YcmCompleter GoToDeclaration<CR>
 
 "------UltiSnips------
 let g:UltiSnipsExpandTrigger="<leader><tab>"
