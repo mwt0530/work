@@ -16,6 +16,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'vim-airline/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
@@ -276,3 +277,9 @@ let g:vim_markdown_folding_disabled = 1
 "[vim-gitgutter]
 let g:gitgutter_enabled = 0
 nmap <leader>g <esc>:GitGutterToggle<CR>
+
+"[ack.vim]
+if executable('ag')
+    "let g:ackprg = 'ag --vimgrep'
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
