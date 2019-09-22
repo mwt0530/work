@@ -52,3 +52,7 @@ exec i3 -V >> i3.log 2>&1
 ## 屏幕亮度
 https://ivan.reallusiondesign.com/i3wm-brightness-control-on-t480s/
 
+
+## run .desktop files with command line
+gtk-launch file (file is name without .desktop under /usr/share/applications/)
+https://askubuntu.com/questions/5172/running-a-desktop-file-in-the-terminal
