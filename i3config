@@ -222,3 +222,5 @@ exec feh --bg-scale /usr/share/backgrounds/Flora_by_Marek_Koteluk.jpg
 exec --no-startup-id xcompmgr &
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
+#exec --no-startup-id blueman-applet
+exec --no-startup-id /usr/bin/pulseaudio --start --log-target=syslog
