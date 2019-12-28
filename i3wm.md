@@ -33,6 +33,13 @@ https://bbs.deepin.org/forum.php?mod=viewthread&tid=142401
 - appImage wechat
 http://www.justlive.vip/blog/article/details/24235
 
+-调整dpi
+```sh
+env WINEPREFIX="$HOME/.deepinwine/Deepin-WeChat" /usr/bin/ deepin-wine winecfg
+```
+https://blog.csdn.net/weixin_36349646/article/details/102670624
+https://bbs.deepin.org/forum.php?mod=viewthread&tid=176267
+
 
 ## touchpad enable click on tap
 https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
