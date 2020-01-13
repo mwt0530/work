@@ -194,6 +194,15 @@ let g:ycm_filetype_whitelist = {
         \'cmake': 1,
         \'go': 1
         \}
+let g:ycm_language_server =
+  \ [
+  \   {
+  \     'name': 'gopls',
+  \     'cmdline': [ '/root/go/bin/gopls' , "-rpc.trace" ],
+  \     'filetypes': [ 'go' ],
+  \     "project_root_files": [ "go.mod" ]
+  \   }
+  \ ]
 
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <silent> <leader><leader>r :YcmCompleter GoToDefinition<CR>
